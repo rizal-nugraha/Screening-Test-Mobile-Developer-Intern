@@ -1,0 +1,2 @@
+rootProject.name = "Screening Test - Mobile Developer Intern"
+include ':app'
