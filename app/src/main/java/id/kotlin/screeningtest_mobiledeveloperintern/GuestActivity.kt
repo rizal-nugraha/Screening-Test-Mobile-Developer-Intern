@@ -64,7 +64,7 @@ class GuestActivity : AppCompatActivity() {
             var url: URL? = null
             try {
                 val location = 1
-                url = URL(location)
+                url = URL()
             } catch (e: MalformedURLException) {
                 Log.e("ERROR", "Can't connect to the url")
             }
@@ -87,7 +87,7 @@ class GuestActivity : AppCompatActivity() {
             return null
         }
 
-        private fun URL(location: Int): URL? {
+        private fun URL(): URL? {
           HttpAsyncTask().execute()
             return null
         }
