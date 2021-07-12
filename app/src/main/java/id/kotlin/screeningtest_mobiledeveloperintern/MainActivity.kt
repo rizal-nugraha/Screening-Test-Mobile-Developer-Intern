@@ -23,32 +23,24 @@ class MainActivity : Activity() {
             namaTextView.text = nama
         }
         eventButton = findViewById<View>(R.id.eventButton) as Button
-        eventButton!!.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                val intent = Intent(this@MainActivity, EventActivity::class.java)
-                startActivityForResult(intent, eventActvityCode)
-            }
-        })
+        eventButton!!.setOnClickListener {
+            val intent = Intent(this@MainActivity, EventActivity::class.java)
+            startActivityForResult(intent, eventActvityCode)
+        }
         guestButton = findViewById<View>(R.id.guestButton) as Button
-        guestButton!!.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                val intent = Intent(this@MainActivity, GuestActivity::class.java)
-                startActivityForResult(intent, guestActivityCode)
-            }
-        })
+        guestButton!!.setOnClickListener {
+            val intent = Intent(this@MainActivity, GuestActivity::class.java)
+            startActivityForResult(intent, guestActivityCode)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         if (requestCode == eventActvityCode) {
-            if (data != null) {
-                val eventName = data.getStringExtra("EVENT-NAME")
-                eventButton?.setText(eventName)
-            }
+            val eventName = data.getStringExtra("EVENT-NAME")
+            eventButton!!.text = eventName
         } else if (requestCode == guestActivityCode) {
-            if (data != null) {
-                val guestName = data.getStringExtra("GUEST-NAME")
-                guestButton?.setText(guestName)
-            }
+            val guestName = data.getStringExtra("GUEST-NAME")
+            guestButton!!.text = guestName
         }
     }
 }

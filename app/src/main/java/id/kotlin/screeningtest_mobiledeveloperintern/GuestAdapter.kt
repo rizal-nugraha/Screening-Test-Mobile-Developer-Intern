@@ -1,13 +1,11 @@
 package id.kotlin.screeningtest_mobiledeveloperintern
 
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
-
 
 class GuestAdapter(context: Context?, guests: ArrayList<Guest?>?) :
     ArrayAdapter<Guest?>(context!!, 0, guests!!) {
@@ -19,7 +17,7 @@ class GuestAdapter(context: Context?, guests: ArrayList<Guest?>?) :
         }
         val namaEvent = convertView!!.findViewById<View>(R.id.guestTextView) as TextView
         namaEvent.text = guest!!.nama
-        namaEvent.setBackgroundResource(guest.image)
+        namaEvent.setBackgroundResource(R.drawable.guest)
         return convertView
     }
 }
